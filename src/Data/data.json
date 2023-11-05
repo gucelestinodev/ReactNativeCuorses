@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Segunda",
+    "color": "#24A6D9",
+    "tasks": [
+      {
+        "titleTask": "Gustavo",
+        "lida": true
+      },
+      {
+        "titleTask": "Gustavo",
+        "lida": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Terça",
+    "color": "#9671D7",
+    "tasks": [
+      {
+        "titleTask": "Gustavo",
+        "lida": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Quarta",
+    "color": "#D159D8",
+    "tasks": []
+  }
+]

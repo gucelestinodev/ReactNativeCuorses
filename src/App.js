@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -6,6 +6,8 @@ import HomePage from './screens/HomePage';
 import List from './screens/List';
 
 function HomeScreen({navigation}) {
+  const [nameApp, setNameApp] = useState('');
+
   return (
     <View
       style={{
@@ -27,6 +29,7 @@ function HomeScreen({navigation}) {
             marginTop: 18,
           }}
           placeholder="Nome"
+          onChangeText={text => setNameApp(text)}
         />
         <TouchableOpacity
           style={{
@@ -38,7 +41,7 @@ function HomeScreen({navigation}) {
             marginTop: 18,
           }}
           onPress={() => {
-            navigation.navigate('HomePage');
+            navigation.navigate('HomePage', nameApp);
           }}>
           <Text style={{color: '#ffffff', fontSize: 18, fontWeight: 'bold'}}>
             Entrar

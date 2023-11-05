@@ -14,10 +14,12 @@ import {
   TextModal,
   InputModal,
   TextModalButton,
+  Separetor,
 } from './styles';
 import More from '../../assets/More.svg';
+import ListTasks from '../../components/ListTasks';
 
-const HomePage = ({navigation}) => {
+const HomePage = ({navigation, route}) => {
   const [modal, setModal] = useState(false);
   const [modalButton, setModalButton] = useState('#000000');
 
@@ -79,7 +81,7 @@ const HomePage = ({navigation}) => {
         <ContainerTitle>
           <Line />
           <ContainerText>
-            <Title>Gustavo</Title>
+            <Title>{route.params}</Title>
             <SubTitle>List</SubTitle>
           </ContainerText>
           <Line />
@@ -93,6 +95,8 @@ const HomePage = ({navigation}) => {
           </Button>
           <TextButton>Adicionar a lista</TextButton>
         </ContainerButton>
+        <Separetor />
+        <ListTasks />
       </Container>
     </>
   );
