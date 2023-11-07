@@ -32,6 +32,7 @@ export const ContainerList = styled.View`
   flex-direction: row;
   margin-top: 30px;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const ContainerCheckList = styled.View`
@@ -62,6 +63,16 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+`;
+
+export const ButtonDelete = styled.TouchableOpacity`
+  width: 30px;
+  height: 30px;
+  background-color: #d85963;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-right: 10px;
 `;
 
 export const TextInputTask = styled.TextInput`
