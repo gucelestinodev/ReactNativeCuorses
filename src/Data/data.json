@@ -5,6 +5,7 @@
     "color": "#24A6D9",
     "tasks": [
       {
+        "id": 1,
         "titleTask": "Curso de React Native",
         "lida": true
       },

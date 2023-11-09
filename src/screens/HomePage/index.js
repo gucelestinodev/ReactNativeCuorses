@@ -30,8 +30,6 @@ const HomePage = ({navigation, route}) => {
   const user = useSelector(state => state.user.data.name);
   const list = useSelector(state => state.list.data);
 
-  console.log(list);
-
   const handlerModal = () => {
     if (nameList && modalButton) {
       dispatch({

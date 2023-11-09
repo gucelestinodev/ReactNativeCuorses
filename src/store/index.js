@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit'; //import do redux
 import {
   persistStore,
   persistReducer,
@@ -8,9 +8,9 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {rootReducer} from './reducer';
+} from 'redux-persist'; //Persistencia dos dados
+import AsyncStorage from '@react-native-async-storage/async-storage'; //Pra amazenar localmente no proprio dispositivo
+import {rootReducer} from './reducer'; //importanto index.js reducer
 
 const persistConfig = {
   key: 'root',
@@ -18,7 +18,7 @@ const persistConfig = {
   storage: AsyncStorage,
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer); //é a configuração para persistir os dados no celular passando esses dois parametros, onde crio essa constante para persistir
 
 const middlewares = [];
 
