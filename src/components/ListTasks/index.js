@@ -1,15 +1,17 @@
 import React from 'react';
 import {View, FlatList, TouchableOpacity} from 'react-native';
-import data from '../../Data/data.json';
 import {Title, SubTitle, TextNumber} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 
 const ListTasks = () => {
   const navigation = useNavigation();
 
+  const list = useSelector(state => state.list.data);
+
   const renderTasksCounts = tasks => {
-    const pendingTasks = tasks.filter(tasks => !tasks.lida).length;
-    const completedTasks = tasks.filter(tasks => tasks.lida).length;
+    const pendingTasks = tasks?.filter(tasks => !tasks.lida).length;
+    const completedTasks = tasks?.filter(tasks => tasks.lida).length;
 
     return (
       <>
@@ -29,7 +31,7 @@ const ListTasks = () => {
     <View>
       <FlatList
         horizontal
-        data={data}
+        data={list}
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
           <TouchableOpacity

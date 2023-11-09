@@ -18,10 +18,16 @@ import {
 } from './styles';
 import More from '../../assets/More.svg';
 import ListTasks from '../../components/ListTasks';
+import {useDispatch, useSelector} from 'react-redux';
 
 const HomePage = ({navigation, route}) => {
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const [nameList, setNameList] = useState('');
   const [modalButton, setModalButton] = useState('#000000');
+
+  const user = useSelector(state => state.user.data.name);
+  const list = useSelector(state => state.list.data);
 
   colorButton = [
     '#5CD859',
@@ -51,6 +57,16 @@ const HomePage = ({navigation, route}) => {
     });
   };
 
+  const handlerModal = () => {
+    if (nameList && modalButton) {
+      dispatch({
+        type: 'LIST/setDataList',
+        payload: {name: nameList, color: modalButton},
+      });
+      setModal(false);
+    }
+  };
+
   return (
     <>
       <Modal
@@ -62,7 +78,10 @@ const HomePage = ({navigation, route}) => {
         }}>
         <ContainerModal>
           <TextModal>Criar Lista do Gustavo</TextModal>
-          <InputModal placeholder="Nome da Lista" />
+          <InputModal
+            placeholder="Nome da Lista"
+            onChangeText={text => setNameList(text)}
+          />
           <View style={{flexDirection: 'row'}}>{renderButtonColor()}</View>
           <TouchableOpacity
             style={{
@@ -72,7 +91,7 @@ const HomePage = ({navigation, route}) => {
               borderRadius: 8,
               justifyContent: 'center',
             }}
-            onPress={() => setModal(false)}>
+            onPress={() => handlerModal()}>
             <TextModalButton>Criar!</TextModalButton>
           </TouchableOpacity>
         </ContainerModal>
@@ -81,7 +100,7 @@ const HomePage = ({navigation, route}) => {
         <ContainerTitle>
           <Line />
           <ContainerText>
-            <Title>{route.params}</Title>
+            <Title>{user}</Title>
             <SubTitle>List</SubTitle>
           </ContainerText>
           <Line />
