@@ -44,10 +44,18 @@ const List = ({route}) => {
   };
 
   const handleMarkPress = (listId, taskId) => {
-    dispatch({
-      type: 'LIST/setDataMarkTask',
-      payload: {id: listId, taskId: taskId},
-    });
+    const task = listTask.tasks.find(task => task.id === taskId);
+    if (task.lida) {
+      dispatch({
+        type: 'LIST/setDataUnmarkTask',
+        payload: {id: listId, taskId: taskId},
+      });
+    } else {
+      dispatch({
+        type: 'LIST/setDataMarkTask',
+        payload: {id: listId, taskId: taskId},
+      });
+    }
   };
 
   const handlerDeleteTask = (listId, taskId) => {
@@ -93,6 +101,7 @@ const List = ({route}) => {
         <TextInputTask
           placeholder="Tarefa"
           onChangeText={text => setNameListTask(text)}
+          value={nameListTask}
         />
         <Button onPress={text => handlerCreateTask(text)}>
           <More />

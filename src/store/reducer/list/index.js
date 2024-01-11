@@ -55,6 +55,20 @@ const listSlice = createSlice({
     setError(state, action) {
       state.error = action.payload;
     },
+    setDataDeletePasta(state, action) {
+      state.data = state.data.filter(item => item.id !== action.payload.id);
+    },
+    setDataUnmarkTask(state, action) {
+      const listItem = state.data.find(item => item.id === action.payload.id);
+      if (listItem) {
+        const task = listItem.tasks.find(
+          task => task.id === action.payload.taskId,
+        );
+        if (task) {
+          task.lida = false;
+        }
+      }
+    },
   },
 });
 
@@ -63,6 +77,8 @@ export const {
   setDataAddTask,
   setDataMarkTask,
   setDataDeleteTask,
+  setDataDeletePasta,
+  setDataUnmarkTask,
   setLoading,
   setError,
 } = listSlice.actions;

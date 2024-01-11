@@ -15,9 +15,9 @@ const App = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="HomePage" component={HomePage} />
+          <Stack.Navigator initialRouteName="User">
+            <Stack.Screen name="User" component={Home} />
+            <Stack.Screen name="Home" component={HomePage} />
             <Stack.Screen name="List" component={List} />
           </Stack.Navigator>
         </NavigationContainer>

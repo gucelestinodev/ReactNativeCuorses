@@ -11,13 +11,13 @@ function Home({navigation}) {
   const handlerButton = () => {
     if (nameApp) {
       dispatch({type: 'USER/setDataUser', payload: nameApp});
-      navigation.navigate('HomePage');
+      navigation.navigate('Home');
     }
   };
 
   useEffect(() => {
     if (user) {
-      navigation.navigate('HomePage');
+      navigation.navigate('Home');
     }
   }, [user]);
 
